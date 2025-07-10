@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --scad-purple: #6c13aa;
+  --scad-grey: #4A4A4A;
+  --scad-white: #FFFFFF;
+  --scad-black: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom SCAD Collective Animations */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1;
+    text-shadow: 0 0 5px var(--scad-purple), 0 0 10px var(--scad-purple), 0 0 15px var(--scad-purple);
+  }
+  50% { 
+    opacity: 0.8;
+    text-shadow: 0 0 20px var(--scad-purple), 0 0 30px var(--scad-purple), 0 0 40px var(--scad-purple);
+  }
+}
+
+@keyframes smooth-fade-in {
+  0% { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes text-reveal {
+  0% { 
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(10px) scale(0.95);
+    filter: blur(5px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes letter-spacing-expand {
+  0% { 
+    letter-spacing: -0.1em;
+    opacity: 0;
+  }
+  50% {
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+  }
+  100% { 
+    letter-spacing: 0.1em;
+    opacity: 1;
+  }
+}
+
+@keyframes glitch-bg {
+  0% { background-position: 0 0; }
+  10% { background-position: -2px -2px; }
+  20% { background-position: 2px 2px; }
+  30% { background-position: -2px 2px; }
+  40% { background-position: 2px -2px; }
+  50% { background-position: 0 0; }
+  60% { background-position: -2px -2px; }
+  70% { background-position: 2px 2px; }
+  80% { background-position: -2px 2px; }
+  90% { background-position: 2px -2px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes tribal-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% { 
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+.glitch-bg:hover {
+  animation: glitch-bg 0.5s ease-in-out;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.smooth-fade-in {
+  animation: smooth-fade-in 1.2s ease-out forwards;
+}
+
+.text-reveal {
+  animation: text-reveal 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.letter-spacing-expand {
+  animation: letter-spacing-expand 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.tribal-pulse {
+  animation: tribal-pulse 3s ease-in-out infinite;
+}
+
+.scad-gradient-bg {
+  background: linear-gradient(135deg, var(--scad-black) 0%, var(--scad-grey) 50%, var(--scad-black) 100%);
+}
+
+.scad-neo-tribal {
+  position: relative;
+}
+
+.scad-neo-tribal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(45deg, transparent 40%, rgba(108, 19, 170, 0.1) 50%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(108, 19, 170, 0.1) 50%, transparent 60%);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scad-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scad-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b1bb8;
+}
+
+/* Glass morphism utilities */
+.glass-morphism {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced navbar transitions */
+.navbar-transition {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure content doesn't jump when navbar hides */
+body {
+  scroll-padding-top: 80px;
+}
